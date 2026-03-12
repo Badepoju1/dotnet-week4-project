@@ -6,7 +6,11 @@ List<int> studentIDs = new List<int>();
 List<double> studentGrades = new List<double>();
 List<bool> enrollmentStatus = new List<bool>();
 
-Console.WriteLine("\n=== Student Management System ===");
+while (true)
+{
+    try
+    {
+        Console.WriteLine("\n=== Student Management System ===");
         Console.WriteLine("1. Add New Student");
         Console.WriteLine("2. View All Students");
         Console.WriteLine("3. Calculate Average Grade");
@@ -209,3 +213,9 @@ Console.WriteLine("\n=== Student Management System ===");
                 Console.WriteLine("Invalid option.");
                 break;
         }
+    }
+    catch (FormatException ex)
+    {
+        Console.WriteLine($"Input Error: {ex.Message}");
+    }
+}
