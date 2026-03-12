@@ -1,0 +1,14 @@
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\bin\Debug\net10.0\StudentManagementSystem.exe
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\bin\Debug\net10.0\StudentManagementSystem.deps.json
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\bin\Debug\net10.0\StudentManagementSystem.runtimeconfig.json
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\bin\Debug\net10.0\StudentManagementSystem.dll
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\bin\Debug\net10.0\StudentManagementSystem.pdb
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\StudentManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\StudentManagementSystem.AssemblyInfoInputs.cache
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\StudentManagementSystem.AssemblyInfo.cs
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\StudentManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\StudentManagementSystem.dll
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\refint\StudentManagementSystem.dll
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\StudentManagementSystem.pdb
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\StudentManagementSystem.genruntimeconfig.cache
+C:\Users\Badepoju\dotnet_ass\dotnet-week4-project\StudentManagementSystem\obj\Debug\net10.0\ref\StudentManagementSystem.dll
