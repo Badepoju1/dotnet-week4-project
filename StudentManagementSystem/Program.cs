@@ -12,6 +12,34 @@ int searchId;   // Temporary variable to store user input for student ID searche
 int index;      // Stores index of student in lists after search
 
 // Main loop to keep the program running until user chooses to exit
+
+// Display to get letter grade method
+string GetLetterGrade(double grade)
+{
+    if (grade >= 90) return "A";
+    else if (grade >= 80) return "B";
+    else if (grade >= 70) return "C";
+    else if (grade >= 60) return "D";
+    else return "F";
+}
+
+void DisplayStudents() // Sorted by display method
+{
+    if (studentNames.Count == 0)
+    {
+        Console.WriteLine("No students available.");
+        return;
+    }
+
+    Console.WriteLine("\nName\t\tID\tGrade\tLetter\tStatus");
+    for (int i = 0; i < studentNames.Count; i++)
+    {
+        string status = studentGrades[i] >= 60 ? "Pass" : "Fail";
+        string letter = GetLetterGrade(studentGrades[i]);
+        Console.WriteLine($"{studentNames[i]}\t{studentIDs[i]}\t{studentGrades[i]}\t{letter}\t{status}");
+    }
+}
+
 while (true)
 {
     try
@@ -26,6 +54,8 @@ while (true)
         Console.WriteLine("6. Delete Student");
         Console.WriteLine("7. Display Statistics");
         Console.WriteLine("8. Exit");
+        Console.WriteLine("9. Find  Student by Name");
+        Console.WriteLine("10. Sorting Option");
 
         Console.Write("\nSelect an option: ");
         int option = Convert.ToInt32(Console.ReadLine()); // Read user option and convert to integer
@@ -42,7 +72,7 @@ while (true)
         {
             case 1: // Add New Student
                 Console.Write("Enter Student Fullname: ");
-                string fullName = Console.ReadLine(); // Get student's full name
+                string fullName = Console.ReadLine()!; // Get student's full name
 
                 Console.Write("Enter Student ID: ");
                 int id = Convert.ToInt32(Console.ReadLine()); // Get student ID
@@ -186,7 +216,7 @@ while (true)
                 {
                     Console.WriteLine($"Student Found: {studentNames[index]}"); // Display student to delete
                     Console.Write("Are you sure you want to delete this student? (yes/no): ");
-                    string confirm = Console.ReadLine().ToLower(); // Confirm deletion
+                    string confirm = Console.ReadLine()!.ToLower(); // Confirm deletion
 
                     if (confirm.StartsWith("y"))
                     {
@@ -245,12 +275,147 @@ while (true)
                 Console.ReadKey();
                 Console.Clear();
                 break;
+            case 9: // Search by Student Name
+            
+                Console.Write("Enter name to search (partial names allowed): ");
+                string searchName = Console.ReadLine()!.ToLower(); // Read user input and convert to lowercase for case-insensitive search
+                bool found = false; // Flag to track whether any matching student is found
+
+                Console.WriteLine("\nName\t\tID\tGrade\tStatus");
+
+                index = studentNames.IndexOf(searchName); // Attempt to find exact match index (not required for partial search but kept for reference)
+
+                for (int i = 0; i < studentNames.Count; i++) // Loop through all student names
+                {
+                    // Check if the current student name contains the search text (partial match allowed)
+                    if (studentNames[i].ToLower().Contains(searchName))
+                    {
+                        string status = studentGrades[i] >= 60 ? "Pass" : "Fail"; // Determine pass/fail based on grade
+                        string letter = GetLetterGrade(studentGrades[i]); // Convert numeric grade to letter grade
+
+                        // Display student information
+                        Console.WriteLine($"{studentNames[i]}\t{studentIDs[i]}\t{studentGrades[i]}\t{letter}\t{status}");
+
+                        found = true; // Mark that at least one student was found
+                    }
+                }
+
+                // If no students matched the search criteria
+                if (!found) 
+                {
+                    Console.WriteLine("No students found matching that name.");
+                }
+
+                Console.WriteLine("\nPress any key to return to the menu...");
+                Console.ReadKey(); // Wait for user input before returning to menu
+                break;
+
+            case 10: // Sort Students (Bonus)
+
+                Console.WriteLine("Sort by:\n1. Grade (High → Low)\n2. Name (A → Z)\n3. ID (Ascending)");
+                Console.WriteLine("Select an Option for Sorting");
+
+                int sortOption = Convert.ToInt32(Console.ReadLine()); // Read user sort option
+
+                // Sort students by Grade (highest to lowest)
+                if (sortOption == 1)
+                {
+                    List<double> sortedGrades = new List<double>(studentGrades); // Create copy of grades list
+                    sortedGrades.Sort(); // Sort grades in ascending order
+                    sortedGrades.Reverse(); // Reverse list to make it descending (high → low)
+
+                    // Temporary lists to keep related student data aligned with sorted grades
+                    List<string> tempNames = new List<string>();
+                    List<int> tempIDs = new List<int>();
+                    List<bool> tempStatus = new List<bool>();
+
+                    foreach (double g in sortedGrades) // Loop through sorted grades
+                    {
+                        int idx = studentGrades.IndexOf(g); // Find original index of the grade
+
+                        // Add corresponding student data to temporary lists
+                        tempNames.Add(studentNames[idx]);
+                        tempIDs.Add(studentIDs[idx]);
+                        tempStatus.Add(enrollmentStatus[idx]);
+                    }
+
+                    // Replace original lists with sorted versions
+                    studentGrades = sortedGrades;
+                    studentNames = tempNames;
+                    studentIDs = tempIDs;
+                    enrollmentStatus = tempStatus;
+                }
+
+                // Sort students alphabetically by Name
+                else if (sortOption == 2)
+                {
+                    List<string> sortedNames = new List<string>(studentNames); // Copy student names
+                    sortedNames.Sort(); // Sort names alphabetically
+
+                    // Temporary lists to maintain correct student information alignment
+                    List<int> tempIDs = new List<int>();
+                    List<double> tempGrades = new List<double>();
+                    List<bool> tempStatus = new List<bool>();
+
+                    foreach (string n in sortedNames)
+                    {
+                        int idx = studentNames.IndexOf(n); // Find original index of the name
+
+                        // Add matching student data
+                        tempIDs.Add(studentIDs[idx]);
+                        tempGrades.Add(studentGrades[idx]);
+                        tempStatus.Add(enrollmentStatus[idx]);
+                    }
+
+                    // Replace original lists with sorted data
+                    studentNames = sortedNames;
+                    studentIDs = tempIDs;
+                    studentGrades = tempGrades;
+                    enrollmentStatus = tempStatus;
+                }
+
+                // Sort students by ID in ascending order
+                else if (sortOption == 3)
+                {
+                    List<int> sortedIDs = new List<int>(studentIDs); // Copy student IDs
+                    sortedIDs.Sort(); // Sort IDs in ascending order
+
+                    // Temporary lists to store corresponding student information
+                    List<string> tempNames = new List<string>();
+                    List<double> tempGrades = new List<double>();
+                    List<bool> tempStatus = new List<bool>();
+
+                    foreach (int idSort in sortedIDs)
+                    {
+                        int idx = studentIDs.IndexOf(idSort); // Find original index of the ID
+
+                        // Add related student data
+                        tempNames.Add(studentNames[idx]);
+                        tempGrades.Add(studentGrades[idx]);
+                        tempStatus.Add(enrollmentStatus[idx]);
+                    }
+
+                    // Update main lists with sorted values
+                    studentIDs = sortedIDs;
+                    studentNames = tempNames;
+                    studentGrades = tempGrades;
+                    enrollmentStatus = tempStatus;
+                }
+
+                else 
+                    Console.WriteLine("Invalid sort option."); // Handle invalid input
+
+                Console.WriteLine("Sorted Students:");
+                DisplayStudents(); // Call method to display updated sorted student list
+
+                Console.WriteLine("\nPress any key to return to the menu...");
+                Console.ReadKey(); // Pause before returning to menu
+                break;
 
             default: // Handle invalid menu option
                 Console.WriteLine("Invalid option."); 
                 Console.WriteLine("\nPress any key to return to the menu...");
                 Console.ReadKey();
-                Console.Clear();
                 break;
         }
     }
