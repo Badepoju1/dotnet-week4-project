@@ -1,0 +1,13 @@
+Name: Babatunde Adepoju
+GitHub Username: Badepoju1
+
+## Brief Reflection
+    Through this assignment, I learned how to build a simple console-based Student Management System using C#. I practiced using variables, lists, loops, and conditional statements to store and manage student data. 
+    I also learned how to validate user input, search for information, and sort data within a program. One of the challenges I faced was ensuring that related lists (names, IDs, and grades) stayed synchronized when sorting or deleting students. Overall, the assignment helped strengthen my understanding of basic programming logic and problem-solving in C#.
+
+
+## List of Bonuses Attempted
+    # Bonus 1: Grade Letter Assignment 
+    # Bonus 2: Search by Name
+    # Bonus 3: Sort Students 
+    # Bonus 4: Git Branching 

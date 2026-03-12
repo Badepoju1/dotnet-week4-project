@@ -308,6 +308,7 @@ while (true)
 
                 Console.WriteLine("\nPress any key to return to the menu...");
                 Console.ReadKey(); // Wait for user input before returning to menu
+                Console.Clear();
                 break;
 
             case 10: // Sort Students (Bonus)
@@ -410,18 +411,20 @@ while (true)
 
                 Console.WriteLine("\nPress any key to return to the menu...");
                 Console.ReadKey(); // Pause before returning to menu
+                Console.Clear();
                 break;
 
             default: // Handle invalid menu option
                 Console.WriteLine("Invalid option."); 
                 Console.WriteLine("\nPress any key to return to the menu...");
                 Console.ReadKey();
+
                 break;
         }
     }
     catch (FormatException ex) // Handle invalid input format
     {
-        Console.WriteLine($"Error: {ex.Message}"); // Display error message
+        Console.WriteLine($"Invalid Input Format: {ex.Message}"); // Display error message
         Console.WriteLine("\nPress any key to return to the menu...");
         Console.ReadKey();
     }
