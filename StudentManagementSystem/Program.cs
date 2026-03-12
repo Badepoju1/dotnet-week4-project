@@ -131,7 +131,7 @@ while (true)
 
                 Console.WriteLine("\nPress any key to return to the menu...");
                 Console.ReadKey();
-                Console.Clear(); // Clear screen before redisplaying menu
+                Console.Clear(); // Clear screen before redisplaying menu 
                 break;
 
             case 3: // Calculate Average Grade
@@ -142,7 +142,7 @@ while (true)
                 else
                 {
                     double total = 0; // Initialize total sum of grades
-                    for (int i = 0; i < studentGrades.Count; i++)
+                    for (int i = 0; i < studentGrades.Count; i++) // iterate
                         total += studentGrades[i]; // Sum all grades
 
                     double average = total / studentGrades.Count; // Compute average
