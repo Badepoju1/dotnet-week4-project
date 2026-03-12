@@ -131,7 +131,7 @@ while (true)
 
                 Console.WriteLine("\nPress any key to return to the menu...");
                 Console.ReadKey();
-                Console.Clear();
+                Console.Clear(); // Clear screen before redisplaying menu
                 break;
 
             case 3: // Calculate Average Grade
