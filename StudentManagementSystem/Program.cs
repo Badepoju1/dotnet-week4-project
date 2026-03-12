@@ -281,7 +281,7 @@ while (true)
                 string searchName = Console.ReadLine()!.ToLower(); // Read user input and convert to lowercase for case-insensitive search
                 bool found = false; // Flag to track whether any matching student is found
 
-                Console.WriteLine("\nName\t\tID\tGrade\tStatus");
+                Console.WriteLine("\nName\t\tID\tGrade\tGradeLetter\tStatus");
 
                 index = studentNames.IndexOf(searchName); // Attempt to find exact match index (not required for partial search but kept for reference)
 
