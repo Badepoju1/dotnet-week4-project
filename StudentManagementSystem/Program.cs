@@ -151,10 +151,10 @@ while (true)
 
                 Console.WriteLine("\nPress any key to return to the menu...");
                 Console.ReadKey();
-                Console.Clear();
+                Console.Clear(); // clear screen
                 break;
 
-            case 4: // Find Student by ID
+            case 4: // Find Student by ID 
                 Console.Write("Enter Student ID: ");
                 searchId = Convert.ToInt32(Console.ReadLine()); // Get student ID to search
 
