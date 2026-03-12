@@ -77,7 +77,7 @@ Console.WriteLine("\n=== Student Management System ===");
 
                 break;
 
-            case 3:
+            case 3: // implement grade calculations functionalities
 
                 if (studentGrades.Count == 0)
                 {
@@ -98,7 +98,7 @@ Console.WriteLine("\n=== Student Management System ===");
 
                 break;
 
-            case 4:
+            case 4: //
 
                 Console.Write("Enter Student ID: ");
                 int searchId = Convert.ToInt32(Console.ReadLine());
@@ -170,7 +170,7 @@ Console.WriteLine("\n=== Student Management System ===");
 
                 break;
 
-            case 7:
+            case 7: // implement statistics functionalities
 
                 if (studentGrades.Count == 0)
                 {
