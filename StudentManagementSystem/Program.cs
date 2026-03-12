@@ -27,7 +27,7 @@ Console.WriteLine("\n=== Student Management System ===");
 
         switch (option)
         {
-            case 1:
+            case 1: // Student addition functionalities 
 
                 Console.Write("Enter Student Fullname: ");
                 string fullName = Console.ReadLine();
@@ -58,7 +58,7 @@ Console.WriteLine("\n=== Student Management System ===");
                 Console.WriteLine("Student added successfully.");
                 break;
 
-            case 2:
+            case 2: // Student record veiwing functionalities
 
                 if (studentNames.Count == 0)
                 {
